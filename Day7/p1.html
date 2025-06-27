@@ -1,0 +1,26 @@
+function validatName(name) {
+ const namepatten=/^[a-zA-z\s'-]+$/;
+ return namepatten.text(name);
+}
+
+function validatMobileNumber(mobileNumber) {
+ const mobilepatten=/^[6-9]+$/;
+ return mobilepatten.text(mobileNumber);
+}
+
+function containsOnlyDigits(str) {
+ const regex=/^\d+$/;
+ return regex.text(str);
+}
+
+function containsOnlyAlphabets(str) {
+ const regex=/^[a-zA-Z]+$/;
+ return regex.text(str);
+}
+
+function containsOnlyAlphanumeric(str) {
+ const regex=/^[a-zA-Z0-9]+$/;
+ return regex.text(str);
+}
+
+

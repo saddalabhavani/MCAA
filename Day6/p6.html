@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function add()
+{
+var num1,num2,sum;
+num1=parseInt(document.getElementById("txtFirstNumber").value);
+num2=parseInt(document.getElementById("txtSecondNumber").value);
+sum=num1+num2;
+document.getElementById("txtAnswer").value=sum;
+}
+function sub()
+{
+var num1,num2,sub;
+num1=parseInt(document.getElementById("txtFirstNumber").value);
+num2=parseInt(document.getElementById("txtSecondNumber").value);
+sub=num1-num2;
+document.getElementById("txtAnswer").value=sub;
+}
+function mul()
+{
+var num1,num2,mul;
+num1=parseInt(document.getElementById("txtFirstNumber").value);
+num2=parseInt(document.getElementById("txtSecondNumber").value);
+mul=num1*num2;
+document.getElementById("txtAnswer").value=mul;
+}
+function clearScreen()
+{
+document.getElementById("txtFirstNumber").value="";
+document.getElementById("txtSecondNumber").value=""; 
+document.getElementById("txtAnswer").value="";
+}
+</script>
+<style>
+table{
+background-color:#00ffff;
+}
+</style>
+</head>
+<body>
+<table border="0">
+<tr>
+<th>First Number:</th> 
+<td><input id="txtFirstNumber"></td>
+</tr>
+<tr>
+<th>Second Number:</th>
+<td><input id="txtSecondNumber"></td>
+</tr>
+<tr>
+<th>Sum:</th>
+<td><input id="txtAnswer"></td>
+</tr>
+<tr>
+<td><button onclick="add()">+</button></td>
+<td><button onclick="sub()">-</button></td>
+<td><button onclick="mul()">*</button></td>
+<td><button onclick="clearScreen()">Clear</button></td>
+</tr>
+</table>
+
+</body>
+</html>
+  
+  

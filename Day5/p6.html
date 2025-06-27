@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function add()
+{
+var num1,num2,sum;
+num1=parseInt(document.getElementById("txtFirstNumber").value);
+num2=parseInt(document.getElementById("txtSecondNumber").value);
+sum=num1+num2;
+document.getElementById("txtAnswer").value=sum;
+}
+function sub()
+{
+var num1,num2,sub;
+num1=parseInt(document.getElementById("txtFirstNumber").value);
+num2=parseInt(document.getElementById("txtSecondNumber").value);
+sub=num1-num2;
+document.getElementById("txtAnswer").value=sub;
+}
+function clear1()
+{
+var num1,num2,clear1()
+num1=parseInt(document.getElementById("txtFirstNumber").value="");
+num2=parseInt(document.getElementById("txtSecondNumber").value="");
+clear1=num1+num2;
+document.getElementById("txtAnswer").value="";
+}
+</script></head>
+
+<body>
+<p>FirstNumber:<input id="txtFirstNumber"></p>
+<p>SecondNumber:<input id="txtSecondNumber"></p>
+<button onclick="add()">add Them</button>
+<button onclick="sub()">subtract Them</button>
+<button onclick="clear1()">clear1 Them</button>
+<p>Sum= <input id="txtAnswer"></p>
+</body>
+</html>
+  
+  

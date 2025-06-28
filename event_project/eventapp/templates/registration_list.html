@@ -1,0 +1,26 @@
+<!-- templates/registration_list.html -->
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Event Registrations</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+</head>
+<body class="container mt-5">
+    <h2>Registrations</h2>
+    <a href="{% url 'event_list' %}" class="btn btn-secondary mb-3">Back to Events</a>
+    <table class="table table-bordered">
+        <thead><tr><th>Participant</th><th>Event</th><th>Registered At</th><th>Checked In</th></tr></thead>
+        <tbody>
+            {% for reg in registrations %}
+            <tr>
+                <td>{{ reg.participant.name }}</td>
+                <td>{{ reg.event.name }}</td>
+                <td>{{ reg.registered_at }}</td>
+                <td>{{ reg.checked_in }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

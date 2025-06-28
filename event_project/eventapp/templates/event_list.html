@@ -1,0 +1,35 @@
+{% load static %}
+<!-- templates/event_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event List</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+</head>
+<body class="container mt-5">
+    <h2>All Events</h2>
+    <a href="{% url 'event_create' %}" class="btn btn-success mb-3">+ Create Event</a>
+    <a href="{% url 'register_participant' %}" class="btn btn-primary mb-3">Register Participant</a>
+    <a href="{% url 'registration_list' %}" class="btn btn-secondary mb-3">View Registrations</a>
+    <a href="{% url 'logout' %}" class="btn btn-danger mb-3">Logout</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>Event</th><th>Venue</th><th>Time</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>{{ event.name }}</td>
+                <td>{{ event.venue.name }}</td>
+                <td>{{ event.start_time }} - {{ event.end_time }}</td>
+                <td>
+                    <a href="{% url 'event_edit' event.id %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'event_delete' event.id %}" class="btn btn-sm btn-danger">Delete</a>
+<a href="{% url 'registration_report' %}" class="btn btn-dark mb-3">View Report</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

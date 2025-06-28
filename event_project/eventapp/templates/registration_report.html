@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration Report</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <style>
+        @media print {
+            .noprint { display: none; }
+        }
+    </style>
+</head>
+<body class="container mt-4">
+    <h2>Registration Report</h2>
+
+    <form method="get" class="form-inline mb-3 noprint">
+        <label>Select Event:&nbsp;</label>
+        <select name="event" class="form-control mr-2">
+            <option value="">All Events</option>
+            {% for event in events %}
+                <option value="{{ event.id }}" {% if selected_event_id == event.id|stringformat:"s" %}selected{% endif %}>
+                    {{ event.name }}
+                </option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-info">Filter</button>
+        <a href="{% url 'event_list' %}" class="btn btn-secondary ml-2">Back</a>
+        <button onclick="window.print()" class="btn btn-primary ml-2">Print</button>
+    </form>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>Event</th><th>Participant</th><th>Email</th><th>Phone</th><th>Registered At</th><th>Checked In</th></tr>
+        </thead>
+        <tbody>
+            {% for reg in registrations %}
+            <tr>
+                <td>{{ reg.event.name }}</td>
+                <td>{{ reg.participant.name }}</td>
+                <td>{{ reg.participant.email }}</td>
+                <td>{{ reg.participant.phone }}</td>
+                <td>{{ reg.registered_at }}</td>
+                <td>{{ reg.checked_in }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="6">No registrations found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

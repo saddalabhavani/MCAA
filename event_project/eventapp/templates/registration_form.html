@@ -1,0 +1,18 @@
+<!-- templates/registration_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Participant</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+</head>
+<body class="container mt-5">
+    <h2>Register Participant to Event</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Register</button>
+        <a href="{% url 'event_list' %}" class="btn btn-secondary">Back</a>
+    </form>
+</body>
+</html>

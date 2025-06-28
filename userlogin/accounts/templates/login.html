@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 350px;
+}
+
+h2 {
+    text-align: center;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.message {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.button-group{
+ margin-top: 20px;
+   display: flex;
+   justify-content: space-between;
+}
+.button-group input{
+  width: 60px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.exit-btn{
+background-color: #d9534f; color:white;
+}
+</style>
+</head>
+<body>
+ 
+  {% for message in messages %}
+    <p style="color:red;">{{ message }}</p>
+  {% endfor %}
+  <form method="POST">
+    {% csrf_token %}
+    <img src="{% static 'img/logo.jpeg' %}"  height=120px width=80px align=left />
+    <h1 align="center">Mother Theresa Institutes Of Computer Applications</h1><br />
+   <h1 align="center">Student Attendence Monitioring System</h1>
+
+   <h2>Login</h2>
+
+   
+    Username: <input type="text" name="username" required><br><br>
+    Password: <input type="password" name="password" required>
+    <div class="button-group">
+     <input type="submit" value="Login">
+    <input type="reset" value="Clear">
+    <input type="button" value="Exit" class="exit-btn" onClick="window.close();"></div>
+     
+   <div class="extra-options">
+        <label><a href="{% url 'password_reset' %}"<input type="checkbox"> Change Password</a></label>
+        <label><a href="{% url 'password_reset' %}"<input type="checkbox"> Forgot Password</a></label>
+        <label><a href="{% url 'password_reset' %}"<input type="checkbox"> New Password</a></label>
+      </div>
+
+   
+     
+  <p align="center">Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+</form>
+</body>
+</html>

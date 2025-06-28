@@ -1,0 +1,134 @@
+{%load static %}
+<head>
+    <title>{% block title %}My Header{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<style>
+body  {
+font-family: Arial, Helvetica,sans-serif;}
+
+  .navbar { 
+         overflow:hidden;
+         background-color:#333;
+         }
+
+
+  .navbar a{ 
+            float:left;
+             font-size:16px;
+           color:white;
+          text-align:center;
+         padding: 14px 16px;
+       text-decoration: none;
+    }
+    
+  .dropdown {
+                  float:left;
+                 overflow:hidden;
+      }
+  .dropdown .dropbtn {
+                font-size:16px;
+                border:none;
+               outline:none;
+                color:white;
+               padding:14px 16px;
+               background-color:inherit;
+               font-family:inherit;
+              margin:0;
+      }
+
+ .navbar a:hover, .dropdown:hover .dropbtn {
+               background-color:red;
+        }
+
+   .dropdown-content {
+         display:none;
+         position:absolute;
+        background-color:#f9f9f9;
+       min-width:16px;
+       box-shadow:0px 8px 16px 0px rgba(0,0,0,2);
+       z-index:1;
+    }
+
+.dropdown-content a {
+              float:none;
+             color:black;
+             padding:12px 16px;
+            text-decoration:none;
+            display:block;
+           text-align:left; 
+       }
+ 
+ .dropdown-content a:hover{ 
+   background-color:#ddd;
+} 
+ .dropdown:hover .dropdown-content {
+      display:block;
+ }
+</style>
+</head>
+<body bgcolor=pink>
+  <header>
+<img src=" {% static 'img/logo.png' %}" height=100px width=100px>
+       <marquee behavior=alternate> <h1>Mother Theresa Institution of Computer Applications</h1></marquee>
+         <h3>melumoi,palamaner-517408</h3>
+         <h2>MTICA</h2>
+<div class="navbar">
+<div class="dropdown">
+<button class="dropbtn">SEM1</button>
+   <div class="dropdown-content">
+     <a href="{% url 'mca101' %}">mca-101</a>
+     <a href="{% url 'mca102' %}">mca-102</a>
+     <a href="{% url 'mca103' %}">mca-103</a>
+<a href="{% url 'mca104' %}">mca-104</a>
+<a href="{% url 'mca105' %}">mca-105</a>
+<a href="{% url 'mca106' %}">mca-106</a>
+<a href="{% url 'mca107' %}">mca-107</a>
+<a href="{% url 'mca108' %}">mca-108</a>
+
+</div></div>
+<div class="dropdown">
+<button class="dropbtn">SEM2</button>
+   <div class="dropdown-content">
+    <a href="{% url 'mca201' %}">mca-201</a>
+<a href="{% url 'mca202' %}">mca-202</a>
+<a href="{% url 'mca203' %}">mca-203</a>
+<a href="{% url 'mca204' %}">mca-204</a>
+<a href="{% url 'mca205' %}">mca-205</a>
+<a href="{% url 'mca206' %}">mca-206</a>
+<a href="{% url 'mca207' %}">mca-207</a>
+<a href="{% url 'mca208' %}">mca-208</a>
+    </div></div>
+<div class="dropdown">
+<button class="dropbtn">SEM3</button>
+   <div class="dropdown-content">
+    <a href="{% url 'mca301' %}">mca-301</a>
+    <a href="{% url 'mca302' %}">mca-302</a>
+    <a href="{% url 'mca303' %}">mca-303</a>
+<a href="{% url 'mca304' %}">mca-304</a>
+<a href="{% url 'mca305' %}">mca-305</a>
+<a href="{% url 'mca306' %}">mca-306</a>
+<a href="{% url 'mca307' %}">mca-307</a>
+<a href="{% url 'mca308' %}">mca-308</a>
+<a href="{% url 'mca309' %}">mca-309</a>
+</div></div>
+  <div class="dropdown">
+<button class="dropbtn">SEM4</button>
+   <div class="dropdown-content">
+     <a href="{% url 'mca401' %}">mca-401</a>
+      <a href="{% url 'mca402' %}">mca-402</a>
+       <a href="{% url 'mca403' %}">mca-403</a>
+
+    </div></div>
+</div>
+ </header>
+
+    <main>
+        {% block content %}
+{% endblock %}
+    </main>
+<footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+</body>
+</html>
+ 

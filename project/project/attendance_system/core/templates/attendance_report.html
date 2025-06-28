@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Report</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <style>
+        @media print {
+            .noprint { display: none; }
+        }
+    </style>
+</head>
+<body class="container mt-4">
+    <h2>Attendance Report</h2>
+
+    <button onclick="window.print()" class="btn btn-primary noprint mb-3">Print</button>
+    <a href="{% url 'student_list' %}" class="btn btn-secondary noprint">Back</a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Name</th>
+                <th scope="col">Roll No</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.date|date:"d M Y" }}</td>
+                <td>{{ record.student.name }}</td>
+                <td>{{ record.student.roll_no }}</td>
+                <td class="{% if record.status == 'Present' %}text-success{% elif record.status == 'Absent' %}text-danger{% endif %}">
+                    {{ record.status }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
